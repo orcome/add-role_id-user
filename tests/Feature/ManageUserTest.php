@@ -116,19 +116,6 @@ class ManageUserTest extends TestCase
     }
 
     /** @test */
-    public function validate_user_description_update_is_not_more_than_255_characters()
-    {
-        $this->loginAsUser();
-        $user = factory(User::class)->create(['name' => 'Testing 123']);
-
-        // description 256 characters
-        $this->patch(route('users.update', $user), $this->getEditFields([
-            'description' => str_repeat('Long description', 16),
-        ]));
-        $this->assertSessionHasErrors('description');
-    }
-
-    /** @test */
     public function user_can_delete_a_user()
     {
         $this->loginAsUser();
