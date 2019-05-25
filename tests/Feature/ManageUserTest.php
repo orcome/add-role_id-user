@@ -64,18 +64,6 @@ class ManageUserTest extends TestCase
         $this->assertSessionHasErrors('name');
     }
 
-    /** @test */
-    public function validate_user_description_is_not_more_than_255_characters()
-    {
-        $this->loginAsUser();
-
-        // description 256 characters
-        $this->post(route('users.store'), $this->getCreateFields([
-            'description' => str_repeat('Long description', 16),
-        ]));
-        $this->assertSessionHasErrors('description');
-    }
-
     private function getEditFields(array $overrides = [])
     {
         return array_merge([
