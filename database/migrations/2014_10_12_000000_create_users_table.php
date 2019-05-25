@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedTinyInteger('role_id'); // 1:admin, 2:teacher, 3:student
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
