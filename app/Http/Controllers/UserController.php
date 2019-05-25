@@ -90,9 +90,17 @@ class UserController extends Controller
         $this->authorize('update', $user);
 
         $userData = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'name'     => 'required|max:60',
+            'email'    => 'required|max:255',
+            'password' => 'nullable|max:255',
         ]);
+
+        if ($userData['password'] == null) {
+            unset($userData['password']);
+        } else {
+            $userData['password'] = bcrypt($userData['password']);
+        }
+
         $user->update($userData);
 
         return redirect()->route('users.show', $user);
