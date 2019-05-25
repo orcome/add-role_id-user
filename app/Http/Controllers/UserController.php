@@ -44,11 +44,11 @@ class UserController extends Controller
         $this->authorize('create', new User);
 
         $newUser = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'name'     => 'required|max:60',
+            'email'    => 'required|max:255',
+            'password' => 'nullable|max:255',
         ]);
-        $newUser['creator_id'] = auth()->id();
-
+        $newUser['password'] = $newUser['password'] ? bcrypt($newUser['password']) : bcrypt('secret');
         $user = User::create($newUser);
 
         return redirect()->route('users.show', $user);
