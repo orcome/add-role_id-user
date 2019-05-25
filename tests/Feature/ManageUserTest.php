@@ -39,8 +39,6 @@ class ManageUserTest extends TestCase
 
         $this->submitForm(__('user.create'), $this->getCreateFields());
 
-        $this->seeRouteIs('users.show', User::first());
-
         $this->seeInDatabase('users', $this->getCreateFields());
     }
 
