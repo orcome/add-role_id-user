@@ -67,8 +67,8 @@ class ManageUserTest extends TestCase
     private function getEditFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'User 1 name',
-            'description' => 'User 1 description',
+            'name'  => 'User 1 name',
+            'email' => 'user@email.com',
         ], $overrides);
     }
 
