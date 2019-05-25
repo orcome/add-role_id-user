@@ -21,6 +21,11 @@
                         {!! $errors->first('email', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
+                        <label for="role_id" class="control-label">{{ __('user.role_id') }}</label>
+                        <input id="role_id" type="text" class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}" name="role_id" value="{{ old('role_id') }}" required>
+                        {!! $errors->first('role_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    </div>
+                    <div class="form-group">
                         <label for="password" class="control-label">{{ __('user.password') }}</label>
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old  ('password') }}" required>
                         {!! $errors->first('password', '<span class="invalid-feedback" role="alert">:message</span>') !!}
