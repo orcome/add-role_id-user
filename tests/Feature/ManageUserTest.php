@@ -23,8 +23,9 @@ class ManageUserTest extends TestCase
     private function getCreateFields(array $overrides = [])
     {
         return array_merge([
-            'name'  => 'User 1 name',
-            'email' => 'user@mail.com',
+            'name'    => 'User 1 name',
+            'email'   => 'user@mail.com',
+            'role_id' => 1, //1:admin, 2:teacher, 3:student
         ], $overrides);
     }
 
