@@ -3,9 +3,8 @@
 namespace Tests\Unit\Models;
 
 use App\User;
-use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
