@@ -25,13 +25,4 @@ class UserTest extends TestCase
 
         $this->assertEquals($link, $user->name_link);
     }
-
-    /** @test */
-    public function a_user_has_belongs_to_creator_relation()
-    {
-        $user = factory(User::class)->make();
-
-        $this->assertInstanceOf(User::class, $user->creator);
-        $this->assertEquals($user->creator_id, $user->creator->id);
-    }
 }
