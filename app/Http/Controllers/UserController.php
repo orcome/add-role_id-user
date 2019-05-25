@@ -46,6 +46,7 @@ class UserController extends Controller
         $newUser = $request->validate([
             'name'     => 'required|max:60',
             'email'    => 'required|max:255',
+            'role_id'  => 'required|numeric',
             'password' => 'nullable|max:255',
         ]);
         $newUser['password'] = $newUser['password'] ? bcrypt($newUser['password']) : bcrypt('secret');
